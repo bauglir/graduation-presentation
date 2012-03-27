@@ -4,6 +4,7 @@
   "date": "10/04/2012",
   "description": "Graduation Presentation",
   "sections": [
-    { "section" : "introduction" }
+    { "section" : "introduction" },
+    { "section" : "computer-aided-algorithm-design" }
   ]
 }
