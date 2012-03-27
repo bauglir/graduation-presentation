@@ -1,5 +1,8 @@
 {
-  "name": "Joris Kraak - Graduation Presentation",
+  "author": "Joris Kraak (0510463)",
+  "name": "Computer-Aided Algorithm Design for Audio Processing",
+  "date": "10/04/2012",
+  "description": "Graduation Presentation",
   "sections": [
     { "section" : "introduction" }
   ]
