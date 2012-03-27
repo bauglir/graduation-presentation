@@ -1,9 +1,9 @@
-!SLIDE
+!SLIDE subsection
 
-# Computer-Aided Algorithm Design for Audio Processing #
+# Computer-Aided Algorithm Design for Audio Processing
 
-### Graduation Presentation ###
+### Graduation Presentation
 
-### Joris Kraak ###
+### Joris Kraak
 
-### April 10, 2012 ###
+### April 10, 2012

@@ -2,7 +2,7 @@
 
 # Overview
 
-* The Problem
+* Computer-Aided Algorithm Design
 
 * Traditional Optimization
 
