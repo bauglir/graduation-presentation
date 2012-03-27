@@ -1,3 +1,0 @@
-!SLIDE 
-# Graduation Presentation #
-
