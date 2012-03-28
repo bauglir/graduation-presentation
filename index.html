@@ -88,7 +88,9 @@
 
 <h3>Joris Kraak</h3>
 
-<h3>April 10, 2012</h3></div>
+<h3>April 10, 2012</h3>
+
+<h3>Daily supervisor: Prof.dr.ir. Bert de Vries</h3></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="introduction/02-overview">
 <h1>Overview</h1>
 
@@ -112,19 +114,19 @@
 
 <ul>
 <li>Algorithm Proposal</li>
-<li>\(s=H(\theta,x,s)\) with \(\theta\in\Theta\)</li>
+<li>\(s_{t}=H(\theta,x_{t},s_{t-1})\) with \(\theta\in\Theta\)</li>
 <li>Problem Instances with Weights</li>
 <li>\(\mathcal{X}=\{x_{1},\ldots,x_{K}\}\) with \(p(\mathcal{X})\)</li>
-<li>Performance Measure(s)</li>
-<li>\(l=L(s,r)\)</li>
+<li>Signal Performance Measure(s)</li>
+<li>\(\text{score}_{x} = L(s_{T},r)\)</li>
 </ul>
 </div>
 </div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="computer-aided-algorithm-design/03-expected-loss-function">
 <h1>Expected Loss Function</h1>
 
 <ul>
-<li><p>Measures average performance</p></li>
-<li><p>\(\text{EL}(\theta) = \sum_{k=1}^{K} p(x_k) L(H(\theta, x_k),r_{k})\)</p></li>
+<li><p>Algorithm Performance Measure</p></li>
+<li><p>\(\text{EL}(\theta) = \sum_{k=1}^{K} p(x_k) L(s_{T,k},r_{k})\)</p></li>
 <li><p>Evaluation of \(L\) is expensive</p></li>
 <li><p>Evaluation of \(\text{EL}\) is <em>really</em> expensive</p></li>
 </ul>
