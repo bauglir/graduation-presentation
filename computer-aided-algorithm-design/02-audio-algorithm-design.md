@@ -7,4 +7,4 @@
 * Problem Instances with Weights
 * \\(\mathcal{X}=\\{x\_{1},\\ldots,x\_{K}\\}\\) with \\(p(\mathcal{X})\\) 
 * Signal Performance Measure(s)
-* \\(\text{score}\_{x} = L(s\_{T},r)\\)
+* \\(\text{score}\_{x\_{k}} = L(s\_{T},r)\\)
