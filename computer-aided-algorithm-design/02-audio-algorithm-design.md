@@ -3,8 +3,8 @@
 # Audio Algorithm Design
 
 * Algorithm Proposal
-* \\(s=H(\theta,x,s)\\) with \\(\theta\in\Theta\\)
+* \\(s\_{t}=H(\theta,x\_{t},s\_{t-1})\\) with \\(\theta\in\Theta\\)
 * Problem Instances with Weights
 * \\(\mathcal{X}=\\{x\_{1},\\ldots,x\_{K}\\}\\) with \\(p(\mathcal{X})\\) 
-* Performance Measure(s)
-* \\(l=L(s,r)\\)
+* Signal Performance Measure(s)
+* \\(\text{score}\_{x} = L(s\_{T},r)\\)
