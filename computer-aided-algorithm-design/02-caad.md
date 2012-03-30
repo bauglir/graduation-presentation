@@ -1,4 +1,4 @@
-!SLIDE subsection bullets incremental
+!SLIDE bullets incremental
 
 # Computer-Aided Algorithm Design
 

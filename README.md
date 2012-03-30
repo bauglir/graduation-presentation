@@ -8,6 +8,10 @@ Graduation Presentation by Joris Kraak held on April 10, 2012
 
 ### Overview
 
+### Algorithm Design
+* What type of algorithms do we want to design?
+* Illustrate example
+
 ### Computer-Aided Algorithm Design
 * Term coined by Hoos
 * What does it mean in a general sense?
