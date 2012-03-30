@@ -28,4 +28,8 @@ Graduation Presentation by Joris Kraak held on April 10, 2012
 * The Expected Loss introduces a double loop in the optimization process. Each additional x requires N new evaluations of L
 * Computing EL and looking for the optimal theta is the tedious task that we want the computer to do
 
-###
+### Traditional Methods
+* What does it take to solve EL?
+* Exponential growth of optimization time in number of parameters
+* Require large number of signals, to obtain accurate density over that input space
+* Which in turn requires a lot of evaluations of L

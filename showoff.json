@@ -5,6 +5,7 @@
   "description": "Graduation Presentation",
   "sections": [
     { "section" : "introduction" },
-    { "section" : "computer-aided-algorithm-design" }
+    { "section" : "computer-aided-algorithm-design" },
+    { "section" : "traditional-methods" }
   ]
 }
