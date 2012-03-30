@@ -1,3 +1,11 @@
+// Include D3
+(function () {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "file/lib/d3.min.js";
+  document.getElementsByTagName("head")[0].appendChild(script);
+})();
+
 // Include MathJax
 (function () {
   var script = document.createElement("script");
