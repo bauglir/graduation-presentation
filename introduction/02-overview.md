@@ -4,8 +4,8 @@
 
 * Computer-Aided Algorithm Design
 
-* Traditional Optimization
+* Traditional Methods
 
-* Model Based Optimization
+* Model Based Methods
 
 * Conclusion
