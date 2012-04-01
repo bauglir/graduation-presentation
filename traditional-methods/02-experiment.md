@@ -10,9 +10,9 @@ function showGraphTraditional(event) {
   drawLineGraph($(bulletList), data);
 }
 
-$(".traditional-results").bind("showoff:next", showGraphTraditional);
+<!-- $(".traditional-results").bind("showoff:next", showGraphTraditional); -->
 </script>
 
 # Results
 
-* Optimization of a noise reduction algorithm
+* Show Results Of Traditional Optimization

@@ -13,7 +13,7 @@ Graduation Presentation by Joris Kraak held on April 10, 2012
 * Illustrate example
 
 ### Computer-Aided Algorithm Design
-* Term coined by Hoos
+* Term coined by Holger Hoos in 2010
 * What does it mean in a general sense?
 
 ### Audio Algorithm Design
@@ -33,3 +33,22 @@ Graduation Presentation by Joris Kraak held on April 10, 2012
 * Exponential growth of optimization time in number of parameters
 * Require large number of signals, to obtain accurate density over that input space
 * Which in turn requires a lot of evaluations of L
+
+### Results
+
+### Model-Based Methods
+* Sample once in L, Update model of EL
+* Already tell the speedup gain we get
+
+### Visualize Optimizer Strategy
+
+### Bayesian Optimization & Gaussian Processes
+* Each point in the graph has a mean and variance
+
+### Results
+
+### Conclusions
+* Seemed very promising, but not a solve-all solution
+* Numerical Instabilities
+
+### Questions?

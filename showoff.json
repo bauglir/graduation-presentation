@@ -6,6 +6,8 @@
   "sections": [
     { "section" : "introduction" },
     { "section" : "computer-aided-algorithm-design" },
-    { "section" : "traditional-methods" }
+    { "section" : "traditional-methods" },
+    { "section" : "model-based-methods" },
+    { "section" : "conclusion"}
   ]
 }

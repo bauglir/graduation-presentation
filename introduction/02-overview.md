@@ -2,7 +2,7 @@
 
 # Overview
 
-* Computer-Aided Algorithm Design
+* (Computer-Aided) Algorithm Design
 
 * Traditional Methods
 
