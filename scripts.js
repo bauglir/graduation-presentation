@@ -93,6 +93,31 @@ function drawLineGraph(target, data) {
     .on('mouseout',  function() { d3.select(this).attr('r', 4) });
 }
 
+function modelBasedResultsReset() {
+  modelBasedResultsStep = 0;
+
+  $('h1', '.model-based-results').css('marginTop', '-210px');
+  $('li:first-child', '.model-based-results').css('padding-bottom', '475px');
+
+  $('img', '.model-based-results').css({
+    'width' : '890px',
+    'position' : 'absolute',
+    'top' : '110px',
+    'left' : '67px'
+  });
+}
+
+function modelBasedResultsForward() {
+  if(modelBasedResultsStep >= 1) {
+    $('img', '.model-based--results').css({
+      'width' : '740px',
+      'left' : '142px'
+    });
+  } else {
+    modelBasedResultsStep++;
+  }
+}
+
 function optimizationStrategyReset() {
   optimizationStrategyStep = 0;
   $('h1', '.optimization-strategy').css('marginTop', '-290px');

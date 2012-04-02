@@ -1,5 +1,12 @@
-!SLIDE bullets incremental
+!SLIDE model-based-results bullets incremental
 
-# Results
+<script type="text/javascript">
+  $('.model-based-results').bind('showoff:show', modelBasedResultsReset)
+  $('.model-based-results').bind('showoff:incr', modelBasedResultsForward);
+</script>
 
-* Another graph
+# Convergence Behavior
+
+* ![REGO Results](rego-results.png)
+
+* 30 Evaluations of \\(L\\)
