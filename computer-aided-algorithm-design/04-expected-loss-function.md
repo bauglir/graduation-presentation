@@ -8,29 +8,33 @@
 
     if(window.algorithmPerformanceStep == 0 || window.algorithmPerformanceStep == 3 || window.algorithmPerformanceStep == 4) {
       if(window.algorithmPerformanceStep == 0) {
-        algorithmPerformanceZoom();
+        algorithmPerformanceZoom(0);
       } else {
         algorithmPerformanceZoom(window.algorithmPerformanceStep - 2);
       }
+    } else {
+      var images = $('img', '.algorithm-performance');
+      $(images[0]).show();
+      $(images[3]).show();
+      $(images[4]).show();
     }
     window.algorithmPerformanceStep++;
   }
 
   function algorithmPerformanceZoom(id) {
-    console.log(id);
-    console.log($($('img', '.algorithm-performance')[]))
-    $($('img', '.algorithm-performance')[id]).css(
-      { 'background-color' : 'white',
-        'left' : 112,
-        'width' : 800,
-        'z-index': 100
-    });
+    var images = $('img', '.algorithm-performance');
+    $(images[0]).hide();
+    $(images[3]).hide();
+    $(images[4]).hide();
+
+    $(images[id]).css({ 'background-color' : 'white', 'left' : 112, 'width' : 800, 'z-index': 100 });
+    $(images[id]).show();
   }
 
   function algorithmPerformanceMoveToPosition(id) {
     var bullets = $('li', '.algorithm-performance');
     var left = [25, 0, 0, 350, 675];
-    imageStyling = { 'position': 'absolute', 'width': '350px', 'top': '150px' };
+    imageStyling = { 'position': 'absolute', 'width': '350px', 'top': '125px' };
     imageStyling.left = left[id] + 'px'; 
     $('img', bullets[id]).css(imageStyling);
   }
