@@ -35,7 +35,7 @@ Graduation Presentation by Joris Kraak held on April 10, 2012
 
 ### Traditional Methods
 * What does it take to solve EL?
-* Exponential growth of optimization time in number of parameters
+* Exponential growth of optimization time in number of parameters (that has largely been solved though)
 * Require large number of signals, to obtain accurate density over that input space
 * Which in turn requires a lot of evaluations of L
 

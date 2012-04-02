@@ -2,7 +2,7 @@
 
 # Traditional Methods
 
-* Growth in number of parameters
+* Exponential growth in number of parameters
 
 * Require a large number of signals
 

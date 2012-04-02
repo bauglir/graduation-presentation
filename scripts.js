@@ -93,6 +93,32 @@ function drawLineGraph(target, data) {
     .on('mouseout',  function() { d3.select(this).attr('r', 4) });
 }
 
+function optimizationStrategyReset() {
+  optimizationStrategyStep = 0;
+  $('h1', '.optimization-strategy').css('marginTop', '-290px');
+  var slide = $('.optimization-strategy');
+  var mask_properties = [
+    { 'width' : '286px', 'height' : '210px', 'position' : 'absolute', 'top' : '140px', 'left' : '170px', 'background-color' : '#fff' },
+    { 'width' : '211px', 'height' : '111px', 'position' : 'absolute', 'top' : '190px', 'left' : '455px', 'background-color' : '#fff' },
+    { 'width' : '200px', 'height' : '301px', 'position' : 'absolute', 'top' : '200px', 'left' : '666px', 'background-color' : '#fff' },
+    { 'width' : '190px', 'height' : '221px', 'position' : 'absolute', 'top' : '501px', 'left' : '656px', 'background-color' : '#fff' },
+    { 'width' : '202px', 'height' : '150px', 'position' : 'absolute', 'top' : '516px', 'left' : '456px', 'background-color' : '#fff' },
+    { 'width' : '218px', 'height' : '216px', 'position' : 'absolute', 'top' : '300px', 'left' : '495px', 'background-color' : '#fff' },
+    { 'width' : '302px', 'height' : '109px', 'position' : 'absolute', 'top' : '396px', 'left' : '194px', 'background-color' : '#fff' },
+    { 'width' : '100px', 'height' : '180px', 'position' : 'absolute', 'top' : '504px', 'left' : '252px', 'background-color' : '#fff' }
+  ];
+  for(i = 0; i < 8; i++) {
+	slide.append($('<div>').addClass('mask').css(mask_properties[i]));
+  }
+}
+
+function optimizationStrategyStep(event) {
+  $($('div', '.optimization-strategy')[optimizationStrategyStep++]).hide();
+  if(optimizationStrategyStep < 9) {
+    event.preventDefault();
+  }
+}
+
 function traditionalResultsReset() {
   traditionalResultsStep = 0;
 
