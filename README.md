@@ -40,6 +40,8 @@ Graduation Presentation by Joris Kraak held on April 10, 2012
 * Which in turn requires a lot of evaluations of L
 
 ### Results
+* Ran an experiment to improve intelligibility for 3 different SNR losses
+* Note that convergence is quick, but that each iteration requires a large amount of calls to L
 
 ### Model-Based Methods
 * Sample once in L, Update model of EL
