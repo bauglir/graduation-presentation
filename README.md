@@ -9,24 +9,28 @@ Graduation Presentation by Joris Kraak held on April 10, 2012
 ### Overview
 
 ### Algorithm Design
-* What type of algorithms do we want to design?
-* Illustrate example
+* What type of algorithms do we want to design? -> Block based algorithms that can be tuned through parameters
+* Noise reduction algorithm to improve intelligibility of speech in stationary noise
 
 ### Computer-Aided Algorithm Design
-* Term coined by Holger Hoos in 2010
-* What does it mean in a general sense?
+* Term coined by Holger Hoos in 2010 to describe a solution to manual algorithm design
+* Inherent problems with algorithm design:
+  * Time-consuming due to large parameter spaces
+  * Time consumption leads to personal investment
+  * Personal investment leads to more complicated designs
 
 ### Audio Algorithm Design
-* What does our ideal way of designing audio algorithms look like?
-* Block based processing of a signal x
+* What does our ideal way of designing audio algorithms look like, i.e. What are the creative tasks of a researcher?
 * Set of problem instances describing the type of signals that we want to process (e.g. obtained by walking around with a microphone and recording problematic signals)
 * Some performance measure operating on the final state of the algorithm after processing a signal
 
-### Expected Loss Function
-* Why is L expensive? What is fed to L is the final output of H after processing x completely. Processing the signal x through H can take a lot of time
+### Algorithm Performance
+* Picture of L for the example algorithm
+  * Why is L expensive? What is fed to L is the final output of H after processing x completely. Processing the signal x through H can take a lot of time
 * What are the benefits of using this sort of performance measure? (Preference elicitation, multiple signal performance functions)
 * The Expected Loss introduces a double loop in the optimization process. Each additional x requires N new evaluations of L
 * Computing EL and looking for the optimal theta is the tedious task that we want the computer to do
+* SNR Loss
 
 ### Traditional Methods
 * What does it take to solve EL?
