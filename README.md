@@ -45,7 +45,7 @@ Graduation Presentation by Joris Kraak held on April 10, 2012
 
 ### Model-Based Methods
 * Sample once in L, Update model of EL
-* Already tell the speedup gain we get
+* Already tell the speedup gain we get (1 order of magnitude)
 
 ### Visualize Optimizer Strategy
 
