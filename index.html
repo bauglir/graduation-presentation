@@ -95,13 +95,23 @@
 <h1>Overview</h1>
 
 <ul>
-<li><p>Computer-Aided Algorithm Design</p></li>
+<li><p>(Computer-Aided) Algorithm Design</p></li>
 <li><p>Traditional Methods</p></li>
 <li><p>Model Based Methods</p></li>
 <li><p>Conclusion</p></li>
 </ul>
 </div>
-</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="computer-aided-algorithm-design/01-caad">
+</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="computer-aided-algorithm-design/01-design-example">
+<h1>Algorithm Design</h1>
+
+<ul>
+<li><p>Block processing algorithms with tunable parameters</p></li>
+<li><p>Noise reduction algorithm aimed at improving intelligibility of speech in noise</p></li>
+<li><p>Removes noise power from a noisy signal</p></li>
+<li><p>Maximum suppression bounded by \(G_\text{min}\)</p></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="computer-aided-algorithm-design/02-caad">
 <h1>Computer-Aided Algorithm Design</h1>
 
 <ul>
@@ -109,7 +119,7 @@
 <li><p>Creative tasks by human designers</p></li>
 </ul>
 </div>
-</div><div class="slide" data-transition="none"><div class="content smbullets incremental" ref="computer-aided-algorithm-design/02-audio-algorithm-design">
+</div><div class="slide" data-transition="none"><div class="content smbullets incremental" ref="computer-aided-algorithm-design/03-audio-algorithm-design">
 <h1>Audio Algorithm Design</h1>
 
 <ul>
@@ -121,13 +131,69 @@
 <li>\(\text{score}_{x_{k}} = L(s_{T},r)\)</li>
 </ul>
 </div>
-</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="computer-aided-algorithm-design/03-expected-loss-function">
-<h1>Expected Loss Function</h1>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental algorithm-performance" ref="computer-aided-algorithm-design/04-expected-loss-function">
+
+
+<script type="text/javascript">
+  function algorithmPerformanceForward(event) {
+    algorithmPerformanceMoveToPosition(0);
+    algorithmPerformanceMoveToPosition(3);
+    algorithmPerformanceMoveToPosition(4);
+
+    if(window.algorithmPerformanceStep == 0 || window.algorithmPerformanceStep == 3 || window.algorithmPerformanceStep == 4) {
+      if(window.algorithmPerformanceStep == 0) {
+        algorithmPerformanceZoom(0);
+      } else {
+        algorithmPerformanceZoom(window.algorithmPerformanceStep - 2);
+      }
+    } else {
+      var images = $('img', '.algorithm-performance');
+      $(images[0]).show();
+      $(images[3]).show();
+      $(images[4]).show();
+    }
+    window.algorithmPerformanceStep++;
+  }
+
+  function algorithmPerformanceZoom(id) {
+    var images = $('img', '.algorithm-performance');
+    $(images[0]).hide();
+    $(images[3]).hide();
+    $(images[4]).hide();
+
+    $(images[id]).css({ 'background-color' : 'white', 'left' : 112, 'width' : 800, 'z-index': 100 });
+    $(images[id]).show();
+  }
+
+  function algorithmPerformanceMoveToPosition(id) {
+    var bullets = $('li', '.algorithm-performance');
+    var left = [25, 0, 0, 350, 675];
+    imageStyling = { 'position': 'absolute', 'width': '350px', 'top': '125px' };
+    imageStyling.left = left[id] + 'px'; 
+    $('img', bullets[id]).css(imageStyling);
+  }
+
+  function algorithmPerformanceReset() {
+    algorithmPerformanceStep = 0;
+    var bullets = $('li', '.algorithm-performance');
+    $(bullets[0]).css('padding', '125px');
+    $(bullets[3]).css('padding', 0);
+    $(bullets[4]).css('padding', 0);
+  }
+
+  $('.algorithm-performance').bind('showoff:show', algorithmPerformanceReset)
+  $('.algorithm-performance').bind('showoff:incr', algorithmPerformanceForward);
+</script>
+
+
+<h1>Algorithm Performance</h1>
 
 <ul>
-<li><p>Algorithm Performance Measure</p></li>
-<li><p>\(\text{EL}(\theta) = \sum_{k=1}^{K} p(x_k) L(s_{T,k},r_{k})\)</p></li>
+<li><p><img src="./file/computer-aided-algorithm-design/loss-function-response.png" width="560" height="420" alt="Loss Function Response"/></p></li>
 <li><p>Evaluation of \(L\) is expensive</p></li>
+<li><p>\(\text{EL}(\theta) = \sum_{k=1}^{K} p(x_k) L(s_{T,k},r_{k})\)</p></li>
+<li><p><img src="./file/computer-aided-algorithm-design/snr-probabilities.png" width="560" height="420" alt="Probability Distribution"/></p></li>
+<li><p><img src="./file/computer-aided-algorithm-design/expected-loss-function-response.png" width="560" height="420" alt="Expected Loss Function Response"/></p></li>
 <li><p>Evaluation of \(\text{EL}\) is <em>really</em> expensive</p></li>
 </ul>
 </div>
@@ -140,8 +206,51 @@
 <li><p>Take a long time to find optimal settings</p></li>
 </ul>
 </div>
-</div><div class="slide" data-transition="none"><div class="content" ref="traditional-methods/02-experiment">
-<h1>Results</h1></div>
+</div><div class="slide" data-transition="none"><div class="content traditional-results bullets incremental" ref="traditional-methods/02-experiment">
+
+
+<script>
+function showGraphTraditional(event) {
+  var bulletList = $(event.target).find('ul');
+
+  $('h1').animate({ marginTop: '-200px' }, 1000)
+
+  var data = [3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 7]
+  drawLineGraph($(bulletList), data);
+}
+
+<!-- $(".traditional-results").bind("showoff:next", showGraphTraditional); -->
+</script>
+
+
+<h1>Results</h1>
+
+<ul>
+<li>Show Results Of Traditional Optimization</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="model-based-methods/01-introduction">
+<h1>Model-Based Methods</h1></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="model-based-methods/02-optimization-strategy">
+<h1>Optimization Strategy</h1></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="model-based-methods/03-bayesian-optimization">
+<h1>Bayesian Learning</h1>
+
+<ul>
+<li>Quantify Uncertainty</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="model-based-methods/04-results">
+<h1>Results</h1>
+
+<ul>
+<li>Another graph</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="conclusion/01-conclusions">
+<h1>Conclusions</h1></div>
+</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="conclusion/02-questions">
+<h1>Questions?</h1></div>
 </div></div>
 
 </body>
