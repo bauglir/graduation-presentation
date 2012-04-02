@@ -135,52 +135,6 @@
 
 
 <script type="text/javascript">
-  function algorithmPerformanceForward(event) {
-    algorithmPerformanceMoveToPosition(0);
-    algorithmPerformanceMoveToPosition(3);
-    algorithmPerformanceMoveToPosition(4);
-
-    if(window.algorithmPerformanceStep == 0 || window.algorithmPerformanceStep == 3 || window.algorithmPerformanceStep == 4) {
-      if(window.algorithmPerformanceStep == 0) {
-        algorithmPerformanceZoom(0);
-      } else {
-        algorithmPerformanceZoom(window.algorithmPerformanceStep - 2);
-      }
-    } else {
-      var images = $('img', '.algorithm-performance');
-      $(images[0]).show();
-      $(images[3]).show();
-      $(images[4]).show();
-    }
-    window.algorithmPerformanceStep++;
-  }
-
-  function algorithmPerformanceZoom(id) {
-    var images = $('img', '.algorithm-performance');
-    $(images[0]).hide();
-    $(images[3]).hide();
-    $(images[4]).hide();
-
-    $(images[id]).css({ 'background-color' : 'white', 'left' : 112, 'width' : 800, 'z-index': 100 });
-    $(images[id]).show();
-  }
-
-  function algorithmPerformanceMoveToPosition(id) {
-    var bullets = $('li', '.algorithm-performance');
-    var left = [25, 0, 0, 350, 675];
-    imageStyling = { 'position': 'absolute', 'width': '350px', 'top': '125px' };
-    imageStyling.left = left[id] + 'px'; 
-    $('img', bullets[id]).css(imageStyling);
-  }
-
-  function algorithmPerformanceReset() {
-    algorithmPerformanceStep = 0;
-    var bullets = $('li', '.algorithm-performance');
-    $(bullets[0]).css('padding', '125px');
-    $(bullets[3]).css('padding', 0);
-    $(bullets[4]).css('padding', 0);
-  }
-
   $('.algorithm-performance').bind('showoff:show', algorithmPerformanceReset)
   $('.algorithm-performance').bind('showoff:incr', algorithmPerformanceForward);
 </script>
@@ -209,24 +163,17 @@
 </div><div class="slide" data-transition="none"><div class="content traditional-results bullets incremental" ref="traditional-methods/02-experiment">
 
 
-<script>
-function showGraphTraditional(event) {
-  var bulletList = $(event.target).find('ul');
-
-  $('h1').animate({ marginTop: '-200px' }, 1000)
-
-  var data = [3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 7]
-  drawLineGraph($(bulletList), data);
-}
-
-<!-- $(".traditional-results").bind("showoff:next", showGraphTraditional); -->
+<script type="text/javascript">
+  $('.traditional-results').bind('showoff:show', traditionalResultsReset)
+  $('.traditional-results').bind('showoff:incr', traditionalResultsForward);
 </script>
 
 
-<h1>Results</h1>
+<h1>Convergence Behavior</h1>
 
 <ul>
-<li>Show Results Of Traditional Optimization</li>
+<li><p><img src="./file/traditional-methods/direct-results.png" width="1200" height="900" alt="DIRECT Results"/></p></li>
+<li><p>350 Evaluations of \(L\)</p></li>
 </ul>
 </div>
 </div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="model-based-methods/01-introduction">
