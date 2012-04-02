@@ -2,7 +2,7 @@
 (function () {
   var script = document.createElement("script");
   script.type = "text/javascript";
-  script.src = "file/lib/d3.min.js";
+  script.src = "/file/lib/d3.min.js";
   document.getElementsByTagName("head")[0].appendChild(script);
 })();
 
