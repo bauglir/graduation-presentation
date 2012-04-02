@@ -25,6 +25,7 @@ Graduation Presentation by Joris Kraak held on April 10, 2012
 * Some performance measure operating on the final state of the algorithm after processing a signal
 
 ### Algorithm Performance
+* Explain that intelligibility is linked to SNR
 * Picture of L for the example algorithm
   * Why is L expensive? What is fed to L is the final output of H after processing x completely. Processing the signal x through H can take a lot of time
 * What are the benefits of using this sort of performance measure? (Preference elicitation, multiple signal performance functions)
