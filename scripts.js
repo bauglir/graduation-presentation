@@ -118,12 +118,12 @@ function optimizationStrategyReset() {
   var slide = $('.optimization-strategy');
   $('div', slide).remove();
   var mask_properties = [
-    { 'width' : '222px', 'height' : '88px', 'position' : 'absolute', 'top' : '164px', 'left' : '221px', 'background-color' : '#fff' },
-    { 'width' : '182px', 'height' : '90px', 'position' : 'absolute', 'top' : '162px', 'left' : '442px', 'background-color' : '#fff' },
+    { 'width' : '151px', 'height' : '88px', 'position' : 'absolute', 'top' : '164px', 'left' : '221px', 'background-color' : '#fff' },
+    { 'width' : '252px', 'height' : '90px', 'position' : 'absolute', 'top' : '162px', 'left' : '372px', 'background-color' : '#fff' },
     { 'width' : '182px', 'height' : '299px', 'position' : 'absolute', 'top' : '163px', 'left' : '624px', 'background-color' : '#fff' },
-    { 'width' : '190px', 'height' : '190px', 'position' : 'absolute', 'top' : '461px', 'left' : '615px', 'background-color' : '#fff' },
-    { 'width' : '165px', 'height' : '121px', 'position' : 'absolute', 'top' : '475px', 'left' : '451px', 'background-color' : '#fff' },
-    { 'width' : '205px', 'height' : '225px', 'position' : 'absolute', 'top' : '251px', 'left' : '477px', 'background-color' : '#fff' },
+    { 'width' : '355px', 'height' : '190px', 'position' : 'absolute', 'top' : '461px', 'left' : '451px', 'background-color' : '#fff' },
+    { 'width' : '165px', 'height' : '184px', 'position' : 'absolute', 'top' : '362px', 'left' : '451px', 'background-color' : '#fff' },
+    { 'width' : '205px', 'height' : '111px', 'position' : 'absolute', 'top' : '251px', 'left' : '477px', 'background-color' : '#fff' },
     { 'width' : '256px', 'height' : '93px', 'position' : 'absolute', 'top' : '372px', 'left' : '221px', 'background-color' : '#fff' },
     { 'width' : '100px', 'height' : '152px', 'position' : 'absolute', 'top' : '464px', 'left' : '271px', 'background-color' : '#fff' }
   ];
