@@ -2,7 +2,6 @@
 
 <script type="text/javascript">
   $('.traditional-results').bind('showoff:show', traditionalResultsReset)
-  $('.traditional-results').bind('showoff:incr', traditionalResultsForward);
 </script>
 
 # Convergence Behavior

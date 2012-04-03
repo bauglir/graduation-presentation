@@ -2,7 +2,6 @@
 
 <script type="text/javascript">
   $('.model-based-results').bind('showoff:show', modelBasedResultsReset)
-  $('.model-based-results').bind('showoff:incr', modelBasedResultsForward);
 </script>
 
 # Convergence Behavior

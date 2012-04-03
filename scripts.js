@@ -94,8 +94,6 @@ function drawLineGraph(target, data) {
 }
 
 function modelBasedResultsReset() {
-  modelBasedResultsStep = 0;
-
   $('h1', '.model-based-results').css('marginTop', '-210px');
   $('li:first-child', '.model-based-results').css('padding-bottom', '475px');
 
@@ -107,30 +105,20 @@ function modelBasedResultsReset() {
   });
 }
 
-function modelBasedResultsForward() {
-  if(modelBasedResultsStep >= 1) {
-    $('img', '.model-based--results').css({
-      'width' : '740px',
-      'left' : '142px'
-    });
-  } else {
-    modelBasedResultsStep++;
-  }
-}
-
 function optimizationStrategyReset() {
   optimizationStrategyStep = 0;
   $('h1', '.optimization-strategy').css('marginTop', '-290px');
   var slide = $('.optimization-strategy');
+  $('div', slide).remove();
   var mask_properties = [
-    { 'width' : '286px', 'height' : '210px', 'position' : 'absolute', 'top' : '140px', 'left' : '170px', 'background-color' : '#fff' },
-    { 'width' : '211px', 'height' : '111px', 'position' : 'absolute', 'top' : '190px', 'left' : '455px', 'background-color' : '#fff' },
-    { 'width' : '200px', 'height' : '301px', 'position' : 'absolute', 'top' : '200px', 'left' : '666px', 'background-color' : '#fff' },
-    { 'width' : '190px', 'height' : '221px', 'position' : 'absolute', 'top' : '501px', 'left' : '656px', 'background-color' : '#fff' },
-    { 'width' : '202px', 'height' : '150px', 'position' : 'absolute', 'top' : '516px', 'left' : '456px', 'background-color' : '#fff' },
-    { 'width' : '218px', 'height' : '216px', 'position' : 'absolute', 'top' : '300px', 'left' : '495px', 'background-color' : '#fff' },
-    { 'width' : '302px', 'height' : '109px', 'position' : 'absolute', 'top' : '396px', 'left' : '194px', 'background-color' : '#fff' },
-    { 'width' : '100px', 'height' : '180px', 'position' : 'absolute', 'top' : '504px', 'left' : '252px', 'background-color' : '#fff' }
+    { 'width' : '222px', 'height' : '88px', 'position' : 'absolute', 'top' : '164px', 'left' : '221px', 'background-color' : '#fff' },
+    { 'width' : '182px', 'height' : '90px', 'position' : 'absolute', 'top' : '162px', 'left' : '442px', 'background-color' : '#fff' },
+    { 'width' : '182px', 'height' : '299px', 'position' : 'absolute', 'top' : '163px', 'left' : '624px', 'background-color' : '#fff' },
+    { 'width' : '190px', 'height' : '190px', 'position' : 'absolute', 'top' : '461px', 'left' : '615px', 'background-color' : '#fff' },
+    { 'width' : '165px', 'height' : '121px', 'position' : 'absolute', 'top' : '475px', 'left' : '451px', 'background-color' : '#fff' },
+    { 'width' : '205px', 'height' : '225px', 'position' : 'absolute', 'top' : '251px', 'left' : '477px', 'background-color' : '#fff' },
+    { 'width' : '256px', 'height' : '93px', 'position' : 'absolute', 'top' : '372px', 'left' : '221px', 'background-color' : '#fff' },
+    { 'width' : '100px', 'height' : '152px', 'position' : 'absolute', 'top' : '464px', 'left' : '271px', 'background-color' : '#fff' }
   ];
   for(i = 0; i < 8; i++) {
 	slide.append($('<div>').addClass('mask').css(mask_properties[i]));
@@ -145,8 +133,6 @@ function optimizationStrategyStep(event) {
 }
 
 function traditionalResultsReset() {
-  traditionalResultsStep = 0;
-
   $('h1', '.traditional-results').css('marginTop', '-210px');
   $('li:first-child', '.traditional-results').css('padding-bottom', '475px');
 
@@ -156,15 +142,4 @@ function traditionalResultsReset() {
     'top' : '110px',
     'left' : '67px'
   });
-}
-
-function traditionalResultsForward() {
-  if(traditionalResultsStep >= 1) {
-    $('img', '.traditional-results').css({
-      'width' : '740px',
-      'left' : '142px'
-    });
-  } else {
-    traditionalResultsStep++;
-  }
 }
