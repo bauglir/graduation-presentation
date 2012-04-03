@@ -137,6 +137,7 @@ function regoDemonstrationReset() {
 
   imagePositioning = { 'position' : 'absolute', 'top' : '220px', 'left': '210px' };
   $('img', '.rego-demonstration').css(imagePositioning);
+  $($('li', '.rego-demonstration')[0]).show();
 }
 
 function regoDemonstrationStep() {
