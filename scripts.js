@@ -132,6 +132,21 @@ function optimizationStrategyStep(event) {
   }
 }
 
+function regoDemonstrationReset() {
+  regoDemonstrationStep = 0;
+
+  imagePositioning = { 'position' : 'absolute', 'top' : '220px', 'left': '210px' };
+  $('img', '.rego-demonstration').css(imagePositioning);
+}
+
+function regoDemonstrationStep() {
+  if(regoDemonstrationStep > 0) {
+	$($('li', '.rego-demonstration')[0]).hide();
+  } else {
+	regoDemonstrationStep++;
+  }
+}
+
 function traditionalResultsReset() {
   $('h1', '.traditional-results').css('marginTop', '-210px');
   $('li:first-child', '.traditional-results').css('padding-bottom', '475px');

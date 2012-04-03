@@ -47,12 +47,18 @@ Graduation Presentation by Joris Kraak held on April 10, 2012
 * Sample once in L, Update model of EL
 * Already tell the speedup gain we get (1 order of magnitude)
 
-### Visualize Optimizer Strategy
+### Optimization Strategy
 
-### Bayesian Optimization & Gaussian Processes
-* Each point in the graph has a mean and variance
+### Robust Efficient Global Optimization
+* EL is _never_ calculated explicitly
+* Model using Gaussian Processes
+  * Use probabilities to model uncertainty about function values
+  * Each point in the graph has a mean and variance
+* Iteratively update the model of EL using evaluations of L
+* Optimal design of experiments
 
-### Results
+### Convergence Behavior
+
 
 ### Conclusions
 * Seemed very promising, but not a solve-all solution
