@@ -10,10 +10,10 @@
 
 * Evaluation of \\(L\\) is expensive
 
-* \\(\text{EL}(\theta) = \sum\_{k=1}^{K} p(x\_k) L(s\_{T,k},r\_{k})\\)
-
 * ![Probability Distribution](snr-probabilities.png)
 
 * ![Expected Loss Function Response](expected-loss-function-response.png)
+
+* \\(\text{EL}(\theta) = \sum\_{k=1}^{K} p(x\_k) L(s\_{T,k},r\_{k})\\)
 
 * Evaluation of \\(\text{EL}\\) is _really_ expensive
