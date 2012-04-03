@@ -32,6 +32,7 @@ Graduation Presentation by Joris Kraak held on April 10, 2012
 * The Expected Loss introduces a double loop in the optimization process. Each additional x requires N new evaluations of L
 * Computing EL and looking for the optimal theta is the tedious task that we want the computer to do
 * SNR Loss
+* Minimization of EL
 
 ### Traditional Methods
 * What does it take to solve EL?

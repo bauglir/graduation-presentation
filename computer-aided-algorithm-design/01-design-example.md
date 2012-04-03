@@ -2,7 +2,7 @@
 
 # Algorithm Design
 
-* Block processing algorithms with tunable parameters
+* Audio processing algorithms with tunable parameters
 
 * Noise reduction algorithm aimed at improving intelligibility of speech in noise
 

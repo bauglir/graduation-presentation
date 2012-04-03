@@ -54,7 +54,7 @@ function algorithmPerformanceZoom(id) {
 function algorithmPerformanceMoveToPosition(id) {
   var bullets = $('li', '.algorithm-performance');
   var left = [25, 0, 350, 675, 0];
-  imageStyling = { 'position': 'absolute', 'width': '350px', 'top': '125px' };
+  imageStyling = { 'position': 'absolute', 'width': '350px', 'top': '150px' };
   imageStyling.left = left[id] + 'px';
   $('img', bullets[id]).css(imageStyling);
 }
@@ -65,6 +65,13 @@ function algorithmPerformanceReset() {
   $(bullets[0]).css('padding', '125px');
   $(bullets[2]).css('padding', 0);
   $(bullets[3]).css('padding', 0);
+}
+
+function conclusionsMarkup() {
+  var items = $('li', '.conclusions');
+  $(items[0]).css('color', 'green');
+  $(items[1]).css('color', 'orange');
+  $(items[2]).css('color', 'orange');
 }
 
 function drawLineGraph(target, data) {

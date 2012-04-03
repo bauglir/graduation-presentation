@@ -2,6 +2,8 @@
 
 # Computer-Aided Algorithm Design
 
-* Tedious tasks performed by computers
+* Problems have non-analytical solutions
 
-* Creative tasks by human designers
+* Knowledge is captured in equations
+
+* Uncertainty is captured in parameters
