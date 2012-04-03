@@ -9,3 +9,5 @@
 * ![DIRECT Results](direct-results.png)
 
 * 350 Evaluations of \\(L\\)
+
+.notes 3 experiments for different target SNR losses

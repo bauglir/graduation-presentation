@@ -7,7 +7,7 @@
 
 # Robust Efficient Global Optimization
 
-* Models \\(\text{EL}\\) based on observations of \\(L\\)
+* Creates a model of \\(\text{EL}\\) based on observations of \\(L\\)
 
 * ![Step 1](optimization-step-1.png)
 * ![Step 2](optimization-step-2.png)
@@ -17,3 +17,5 @@
 * ![Step 6](optimization-step-6.png)
 * ![Step 7](optimization-step-7.png)
 * ![Step 8](optimization-step-8.png)
+
+.notes Model of EL is based on Gaussian Processes. Gaussian probability distributions at each point in the solution space (so a mean and a standard deviation). The probability distributions model the uncertainty of our model of EL. The example illustrates the concept, it is not an actual EL.

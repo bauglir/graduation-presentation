@@ -2,10 +2,12 @@
 
 # Algorithm Design
 
-* Audio processing algorithms with tunable parameters
+* Audio processing algorithms tunable through parameters
 
 * Noise reduction algorithm aimed at improving intelligibility of speech in noise
 
 * Removes noise power from a noisy signal
 
-* Maximum suppression bounded by \\(G_\text{min}\\)
+* Lower bound on suppression \\(\left(G_\text{min}\right)\\)
+
+.notes Algorithm works in the frequency domain and is used for instance in Hearing Instruments
