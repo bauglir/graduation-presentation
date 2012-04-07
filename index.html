@@ -88,6 +88,7 @@
 <script type="text/javascript">
 $(function() {
   $('.overview').bind('showoff:next', overviewHighlight);
+  $('.overview').bind('showoff:show', overviewReset);
 });
 </script>
 
@@ -221,7 +222,7 @@ $(function() {
 </div>
 </div><div class="slide" data-transition="none"><div class="content conventional-results bullets incremental" ref="conventional-methods/03-experiments">
 <script type="text/javascript">
-  $('.conventional-results').bind('showoff:show', conventionalResultsReset)
+  $('.conventional-results').bind('showoff:show', conventionalResultsReset);
 </script>
 
 <h1>Convergence Behavior</h1>
