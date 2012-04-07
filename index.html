@@ -37,8 +37,6 @@
   
     <link rel="stylesheet" href="./file/remove-smbullets.css" type="text/css"/>
   
-    <link rel="stylesheet" href="./file/tue.css" type="text/css"/>
-  
 
   
     <script type="text/javascript" src="./file/scripts.js"></script>
@@ -87,6 +85,12 @@
 
 <div id="slides" class="offscreen" style="display:none;">
 <div class="slide" data-transition="none"><div class="content subsection" ref="introduction/01-frontpage">
+<script type="text/javascript">
+$(function() {
+  $('.overview').bind('showoff:next', overviewHighlight);
+});
+</script>
+
 <h1>Computer-Aided Algorithm Design for Audio Processing</h1>
 
 <h3>Graduation Presentation</h3>
@@ -97,12 +101,18 @@
 
 <h3>Daily supervisor: Prof.dr.ir. Bert de Vries</h3>
 </div>
-</div><div class="slide" data-transition="none"><div class="content" ref="introduction/02-overview">
+</div><div class="slide" data-transition="none"><div class="content overview" ref="overview/01-overview">
+<style type="text/css">
+  .overview-highlighted {
+    opacity: 0.25;
+  }
+</style>
+
 <h1>Overview</h1>
 
 <ul>
 <li><p>(Computer-Aided) Algorithm Design</p></li>
-<li><p>Traditional Methods</p></li>
+<li><p>Conventional Methods</p></li>
 <li><p>Model Based Methods</p></li>
 <li><p>Conclusion</p></li>
 </ul>
@@ -125,9 +135,10 @@
 <h1>Computer-Aided Algorithm Design</h1>
 
 <ul>
-<li><p>Problems have non-analytical solutions</p></li>
-<li><p>Knowledge is captured in equations</p></li>
-<li><p>Uncertainty is captured in parameters</p></li>
+<li><p>Problems have <em>non-analytical</em> solutions</p></li>
+<li><p><em>Knowledge</em> is expressed in <em>equations</em></p></li>
+<li><p><em>Uncertainty</em> is captured in <em>parameters</em></p></li>
+<li><p>Finding optimal parameters for a given problem can be tedious work</p></li>
 </ul>
 
 <p class="notes">Trade-off between number of equations and degrees of freedom to search through solution space given by number of parameters. Larger parameter spaces are harder to search. But knowledge equations restrict solution space (including possibly invalid assumptions). Typically small number of parameters, since searching the parameter space can be time-consuming.</p>
@@ -136,62 +147,110 @@
 <h1>Audio Algorithm Design</h1>
 
 <ul>
-<li>Algorithm Proposal</li>
-<li>\([y_{t}, s_{t}]=H(\theta,x_{t},s_{t-1})\) with \(\theta\in\Theta\)</li>
-<li>Model the world with Problem Instances</li>
+<li><em>Algorithm proposal</em></li>
+<li>\(y_{k}=H(\theta,x_{k})\) with \(\theta\in\Theta\)</li>
+<li>Model the world with relevant <em>problem instances</em></li>
 <li>\(\mathcal{X}=\{x_{1},\ldots,x_{K}\}\) with \(p(\mathcal{X})\)</li>
-<li>Algorithm Performance Function</li>
-<li>\(\text{EL}(\theta) = \sum_{k=1}^{K} p(x_k) L(s_{T,k},r_{k})\)</li>
+<li><em>Algorithm performance</em> function</li>
+<li>\(\text{EL}(\theta) = \sum_{k=1}^{K} p(x_k) L(y_{k},r_{k})\)</li>
 </ul>
 
 <p class="notes">H is the noise reduction algorithm. Intelligibility is related to SNR of x. Higher SNR means better intelligibility. To make speech intelligible a certain boost in SNR is required, which depends on SNR hearing loss. Loss function is log-spectral density. The optimal parameters minimize EL. We want to find optimal parameters, so can be seen as an optimization problem.</p>
 </div>
 </div><div class="slide" data-transition="none">
-  <div class="content bullets incremental algorithm-performance" ref="computer-aided-algorithm-design/04-expected-loss-function">
+  <div class="content bullets incremental algorithm-performance" ref="computer-aided-algorithm-design/04-problem-statement">
 <script type="text/javascript">
-  $('.algorithm-performance').bind('showoff:show', algorithmPerformanceReset)
-  $('.algorithm-performance').bind('showoff:incr', algorithmPerformanceForward);
+  $('.algorithm-performance').bind('showoff:show', algorithmPerformanceSetup);
 </script>
 
-<h1>Algorithm Performance</h1>
+<h1>The Problem</h1>
 
 <ul>
+<li><p><img src="./file/computer-aided-algorithm-design/expected-loss-function-response.png" alt="Expected Loss Function Response"/></p>
+<li><p><img src="./file/computer-aided-algorithm-design/snr-probabilities.png" alt="Probability Distribution"/></p>
 <li><p><img src="./file/computer-aided-algorithm-design/loss-function-response.png" alt="Loss Function Response"/></p>
 <li><p>Evaluation of \(L\) is expensive</p></li>
-<li><p><img src="./file/computer-aided-algorithm-design/snr-probabilities.png" alt="Probability Distribution"/></p>
-<li><p><img src="./file/computer-aided-algorithm-design/expected-loss-function-response.png" alt="Expected Loss Function Response"/></p>
 <li><p>Evaluation of \(\text{EL}\) is <em>really</em> expensive</p></li>
+<li><p><em>Find the minimum of \(\text{EL}\) in as few evaluations of \(L\) as possible</em></p></li>
 </li>
 
 <p class="notes">Exhaustive calculation of surface L is not feasible. Evaluation of L is expensive, since we need the final state (S_{T}). Gaussian probability distribution fits interesting input SNRs for a given SNR loss. The minimum shown in EL plot is the one we want to find. Large number of x required to accurately model the world.</p>
 </li>
 </li>
 </ul></div>
-</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="traditional-methods/01-why-a-problem">
-<h1>Traditional Methods</h1>
+</div><div class="slide" data-transition="none"><div class="content overview" ref="overview/01-overview">
+<style type="text/css">
+  .overview-highlighted {
+    opacity: 0.25;
+  }
+</style>
+
+<h1>Overview</h1>
 
 <ul>
-<li><p>Have exponential growth of optimization time in number of parameters</p></li>
-<li><p>Require a large number of signals</p></li>
-<li><p>Take a long time to find optimal parameters</p></li>
+<li><p>(Computer-Aided) Algorithm Design</p></li>
+<li><p>Conventional Methods</p></li>
+<li><p>Model Based Methods</p></li>
+<li><p>Conclusion</p></li>
+</ul>
+
+<p class="notes">Feasibility study for applicability of CAAD to audio algorithm design</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="conventional-methods/01-introduction">
+<h1>Conventional Methods</h1>
+
+<ul>
+<li><p>DIRECT [Jones <em>et al.</em>, 1993]</p></li>
+<li><p>Competitive optimization method</p></li>
+<li><p>Requires a large number of signals</p></li>
+<li><p>Takes a long time to find optimal parameters</p></li>
 </ul>
 
 <p class="notes">Exponential growth is an issue that can be handled. Optimization is time-consuming, because evaluation of EL is time-consuming</p>
 </div>
-</div><div class="slide" data-transition="none"><div class="content traditional-results bullets incremental" ref="traditional-methods/02-experiment">
+</div><div class="slide" data-transition="none"><div class="content conventional-optimization-strategy" ref="conventional-methods/02-optimization-strategy">
 <script type="text/javascript">
-  $('.traditional-results').bind('showoff:show', traditionalResultsReset)
+  $('.conventional-optimization-strategy').bind('showoff:show', conventionalOptimizationStrategyReset);
+  $('.conventional-optimization-strategy').bind('showoff:next', conventionalOptimizationStrategyStep);
+</script>
+
+<h1>Conventional Strategy</h1>
+
+<p><img src="./file/conventional-methods/conventional-optimization-strategy.png" alt="Conventional Optimization Strategy"/>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content conventional-results bullets incremental" ref="conventional-methods/03-experiments">
+<script type="text/javascript">
+  $('.conventional-results').bind('showoff:show', conventionalResultsReset)
 </script>
 
 <h1>Convergence Behavior</h1>
 
 <ul>
-<li><p><img src="./file/traditional-methods/direct-results.png" alt="DIRECT Results"/></p>
+<li><p><img src="./file/conventional-methods/direct-results.png" alt="DIRECT Results"/></p>
 <li><p>350 Evaluations of \(L\)</p></li>
 </li>
 
 <p class="notes">3 experiments for different target SNR losses</p>
 </ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content overview" ref="overview/01-overview">
+<style type="text/css">
+  .overview-highlighted {
+    opacity: 0.25;
+  }
+</style>
+
+<h1>Overview</h1>
+
+<ul>
+<li><p>(Computer-Aided) Algorithm Design</p></li>
+<li><p>Conventional Methods</p></li>
+<li><p>Model Based Methods</p></li>
+<li><p>Conclusion</p></li>
+</ul>
+
+<p class="notes">Feasibility study for applicability of CAAD to audio algorithm design</p>
 </div>
 </div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="model-based-methods/01-introduction">
 <h1>Model-Based Methods</h1>
@@ -257,6 +316,24 @@
 <p class="notes">Same experiment as before, but repeated 10 times for each experiment. Uses 10 evaluations of L to create initial model. Non-monotonicity is caused by adjusting the model to the observations (temporary overfit).</p>
 </ul>
 </div>
+</div><div class="slide" data-transition="none"><div class="content overview" ref="overview/01-overview">
+<style type="text/css">
+  .overview-highlighted {
+    opacity: 0.25;
+  }
+</style>
+
+<h1>Overview</h1>
+
+<ul>
+<li><p>(Computer-Aided) Algorithm Design</p></li>
+<li><p>Conventional Methods</p></li>
+<li><p>Model Based Methods</p></li>
+<li><p>Conclusion</p></li>
+</ul>
+
+<p class="notes">Feasibility study for applicability of CAAD to audio algorithm design</p>
+</div>
 </div><div class="slide" data-transition="none"><div class="content conclusions subsection bullets incremental" ref="conclusion/01-conclusions">
 <script type="text/javascript">
   $('.conclusions').bind('showoff:show', conclusionsMarkup);
@@ -268,12 +345,13 @@
 <li><p>Significant performance gains</p></li>
 <li><p>Not applicable out of the box</p></li>
 <li><p>Numerical issues with Gaussian Processes</p></li>
+<li><p>Investigate how well the algorithm scales</p></li>
 </ul>
 
 <p class="notes">Smoothness constraints have to be satisfied (i.e. it must be possible to model EL using a Gaussian Process) and input distribution of X has to be Gaussian. Numerical issues arise from the use of covariance matrices and inverting them.</p>
 </div>
-</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="conclusion/02-questions">
-<h1>Questions?</h1>
+</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="conclusion/02-thanks">
+<h1>Thank You For Listening!</h1>
 </div>
 </div></div>
 <div id="pauseScreen">
