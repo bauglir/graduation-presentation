@@ -1,7 +1,7 @@
-!SLIDE traditional-results bullets incremental
+!SLIDE conventional-results bullets incremental
 
 <script type="text/javascript">
-  $('.traditional-results').bind('showoff:show', traditionalResultsReset)
+  $('.conventional-results').bind('showoff:show', conventionalResultsReset)
 </script>
 
 # Convergence Behavior

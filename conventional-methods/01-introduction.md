@@ -1,11 +1,13 @@
 !SLIDE subsection bullets incremental
 
-# Traditional Methods
+# Conventional Methods
 
-* Have exponential growth of optimization time in number of parameters
+* DIRECT [Jones _et al._, 1993]
 
-* Require a large number of signals
+* Competitive optimization method
 
-* Take a long time to find optimal parameters
+* Requires a large number of signals
+
+* Takes a long time to find optimal parameters
 
 .notes Exponential growth is an issue that can be handled. Optimization is time-consuming, because evaluation of EL is time-consuming

@@ -83,7 +83,7 @@ function drawLineGraph(target, data) {
   x  = d3.scale.linear().domain([0, data.length - 1]).range([0, w]);
   y  = d3.scale.linear().domain([0, max]).range([h, 0]);
 
-  vis = d3.select('.traditional-results').append('svg:svg').attr('width', w).attr('height', h);
+  vis = d3.select('.conventional-results').append('svg:svg').attr('width', w).attr('height', h);
   vis.selectAll('path.line').data([data, [5,2,8,6,4,1,9,7,3]]).enter().append("svg:path").attr("d", d3.svg.line().x(function (d,i) { return x(i) }).y(y));
 
   ticks = vis.selectAll('.ticks').data(y.ticks(7)).enter().append('svg:g').attr('transform', function(d) { return "translate(0, #{y(d)})"; }).attr('class', 'tick');
@@ -155,11 +155,11 @@ function regoDemonstrationStep() {
   }
 }
 
-function traditionalResultsReset() {
-  $('h1', '.traditional-results').css('marginTop', '-210px');
-  $('li:first-child', '.traditional-results').css('padding-bottom', '475px');
+function conventionalResultsReset() {
+  $('h1', '.conventional-results').css('marginTop', '-210px');
+  $('li:first-child', '.conventional-results').css('padding-bottom', '475px');
 
-  $('img', '.traditional-results').css({
+  $('img', '.conventional-results').css({
     'width' : '890px',
     'position' : 'absolute',
     'top' : '110px',

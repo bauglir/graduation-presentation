@@ -4,7 +4,7 @@
 
 * (Computer-Aided) Algorithm Design
 
-* Traditional Methods
+* Conventional Methods
 
 * Model Based Methods
 
