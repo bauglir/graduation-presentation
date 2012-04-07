@@ -1,4 +1,10 @@
-!SLIDE
+!SLIDE overview
+
+<style type="text/css">
+  .overview-highlighted {
+    opacity: 0.25;
+  }
+</style>
 
 # Overview
 

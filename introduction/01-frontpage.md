@@ -1,5 +1,11 @@
 !SLIDE subsection
 
+<script type="text/javascript">
+$(function() {
+  $('.overview').bind('showoff:next', overviewHighlight);
+});
+</script>
+
 # Computer-Aided Algorithm Design for Audio Processing
 
 ### Graduation Presentation

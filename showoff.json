@@ -5,9 +5,13 @@
   "description": "Graduation Presentation",
   "sections": [
     { "section" : "introduction" },
+    { "section" : "overview" },
     { "section" : "computer-aided-algorithm-design" },
+    { "section" : "overview" },
     { "section" : "conventional-methods" },
+    { "section" : "overview" },
     { "section" : "model-based-methods" },
+    { "section" : "overview" },
     { "section" : "conclusion"}
   ]
 }

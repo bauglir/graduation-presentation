@@ -139,6 +139,27 @@ function optimizationStrategyStep(event) {
   }
 }
 
+function overviewHighlight(event) {
+  var overview_slides = $('.overview');
+  var active_overview_id = 0;
+  var active_overview_slide = undefined;
+
+  overview_slides.each(function(id, slide) {
+	if(slide == event.target) {
+      active_overview_id = id;
+      active_overview_slide = slide;
+	}
+  });
+
+  var list_items = $('li', active_overview_slide);
+  if($('.overview-highlighted').length == 0) {
+	list_items.not(list_items[active_overview_id]).addClass('overview-highlighted');
+	event.preventDefault();
+  } else {
+	list_items.removeClass('overview-highlighted');
+  }
+}
+
 function regoDemonstrationReset() {
   regoDemonstrationStep = 0;
 
