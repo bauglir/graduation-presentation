@@ -1,7 +1,0 @@
-div.smbullets ul {
-	list-style: none;
-}
-
-div.smbullets li:nth-child(2n) {
-	margin-bottom: 2ex;
-}
