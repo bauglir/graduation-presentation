@@ -89,6 +89,7 @@
 $(function() {
   $('.overview').bind('showoff:next', overviewHighlight);
   $('.overview').bind('showoff:show', overviewReset);
+  regoDemonstrationSetup();
 });
 </script>
 
@@ -114,8 +115,8 @@ $(function() {
 <ul>
 <li><p>(Computer-Aided) Algorithm Design</p></li>
 <li><p>Conventional Methods</p></li>
-<li><p>Model Based Methods</p></li>
-<li><p>Conclusion</p></li>
+<li><p>Gaussian Process Based Methods</p></li>
+<li><p>Conclusions</p></li>
 </ul>
 
 <p class="notes">Feasibility study for applicability of CAAD to audio algorithm design</p>
@@ -191,8 +192,8 @@ $(function() {
 <ul>
 <li><p>(Computer-Aided) Algorithm Design</p></li>
 <li><p>Conventional Methods</p></li>
-<li><p>Model Based Methods</p></li>
-<li><p>Conclusion</p></li>
+<li><p>Gaussian Process Based Methods</p></li>
+<li><p>Conclusions</p></li>
 </ul>
 
 <p class="notes">Feasibility study for applicability of CAAD to audio algorithm design</p>
@@ -247,24 +248,60 @@ $(function() {
 <ul>
 <li><p>(Computer-Aided) Algorithm Design</p></li>
 <li><p>Conventional Methods</p></li>
-<li><p>Model Based Methods</p></li>
-<li><p>Conclusion</p></li>
+<li><p>Gaussian Process Based Methods</p></li>
+<li><p>Conclusions</p></li>
 </ul>
 
 <p class="notes">Feasibility study for applicability of CAAD to audio algorithm design</p>
 </div>
-</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="model-based-methods/01-introduction">
-<h1>Model-Based Methods</h1>
+</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="gaussian-process-based-methods/01-introduction">
+<h1>Gaussian Process Based Methods</h1>
 
 <ul>
 <li><p>Iteratively build a model of \(\text{EL}\)</p></li>
 <li><p>Find optimal parameters using this model</p></li>
-<li><p>Takes approximately 30 evaluations of \(L\) for our example</p></li>
+<li><p>Robust Efficient Global Optimization [Janusevskis <em>et al.</em>, 2010]</p></li>
+<li><p>Takes 30 evaluations of \(L\) for our example</p></li>
 </ul>
 
 <p class="notes">We don't want to evaluate EL explicitly, but use a model instead</p>
 </div>
-</div><div class="slide" data-transition="none"><div class="content optimization-strategy" ref="model-based-methods/02-optimization-strategy">
+</div><div class="slide" data-transition="none">
+  <div class="content rego-demonstration bullets incremental" ref="gaussian-process-based-methods/02-bayesian-optimization">
+<script type="text/javascript">
+  $('.rego-demonstration').bind('showoff:show', regoDemonstrationReset);
+  $('.rego-demonstration').bind('showoff:next', regoDemonstrationStep);
+</script>
+
+<h1>Bayesian Optimization</h1>
+
+<ul>
+<li><p>Quantify uncertainty using probability distributions</p></li>
+<li><p>Optimal experimental design</p></li>
+<li><p><img src="./file/gaussian-process-based-methods/optimization-step-1.png" alt="Step 1"/></p>
+<li><p><img src="./file/gaussian-process-based-methods/optimization-step-2.png" alt="Step 2"/></p>
+<li><p><img src="./file/gaussian-process-based-methods/optimization-step-3.png" alt="Step 3"/></p>
+<li><p><img src="./file/gaussian-process-based-methods/optimization-step-4.png" alt="Step 4"/></p>
+<li><p><img src="./file/gaussian-process-based-methods/optimization-step-5.png" alt="Step 5"/></p>
+<li><p><img src="./file/gaussian-process-based-methods/optimization-step-6.png" alt="Step 6"/></p>
+<li><p><img src="./file/gaussian-process-based-methods/optimization-step-7.png" alt="Step 7"/></p>
+<li><p><img src="./file/gaussian-process-based-methods/optimization-step-8.png" alt="Step 8"/></p>
+</li>
+
+<p class="notes">Model of EL is based on Gaussian Processes. Gaussian probability distributions at each point in the solution space (so a mean and a standard deviation). The probability distributions model the uncertainty of our model of EL. The example illustrates the concept, it is not an actual EL.</p>
+</li>
+</li>
+</li></li></li></li></li></ul></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="gaussian-process-based-methods/03-structure-of-expected-loss">
+<h1>Structure of EL</h1>
+
+<ul>
+<li><p>Use that \(\mathcal{X}\) is Gaussian distributed</p></li>
+<li><p>Explicit relation between \(L\) and \(EL\)</p></li>
+<li><p>Allows updates of the model of \(EL\) after <em>each</em> evaluation of \(L\)</p></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content optimization-strategy" ref="gaussian-process-based-methods/04-optimization-strategy">
 <script type="text/javascript">
   $('.optimization-strategy').bind('showoff:show', optimizationStrategyReset);
   $('.optimization-strategy').bind('showoff:next', optimizationStrategyStep);
@@ -272,45 +309,20 @@ $(function() {
 
 <h1>Optimization Strategy</h1>
 
-<p><img src="./file/model-based-methods/optimization-strategy.png" alt="Optimization Strategy"/>
+<p><img src="./file/gaussian-process-based-methods/optimization-strategy.png" alt="Optimization Strategy"/>
 
 <p class="notes">Conceptual strategy, how these steps are implemented follows. Stop if we think our model is accurate enough.</p>
 </p>
 </div>
-</div><div class="slide" data-transition="none">
-  <div class="content rego-demonstration bullets incremental" ref="model-based-methods/03-bayesian-optimization">
+</div><div class="slide" data-transition="none"><div class="content gaussian-process-based-results bullets incremental" ref="gaussian-process-based-methods/05-results">
 <script type="text/javascript">
-  $('.rego-demonstration').bind('showoff:show', regoDemonstrationReset);
-  $('.rego-demonstration').bind('showoff:next', regoDemonstrationStep);
-</script>
-
-<h1>Robust Efficient Global Optimization</h1>
-
-<ul>
-<li><p>Creates a model of \(\text{EL}\) based on observations of \(L\)</p></li>
-<li><p><img src="./file/model-based-methods/optimization-step-1.png" alt="Step 1"/></p>
-<li><p><img src="./file/model-based-methods/optimization-step-2.png" alt="Step 2"/></p>
-<li><p><img src="./file/model-based-methods/optimization-step-3.png" alt="Step 3"/></p>
-<li><p><img src="./file/model-based-methods/optimization-step-4.png" alt="Step 4"/></p>
-<li><p><img src="./file/model-based-methods/optimization-step-5.png" alt="Step 5"/></p>
-<li><p><img src="./file/model-based-methods/optimization-step-6.png" alt="Step 6"/></p>
-<li><p><img src="./file/model-based-methods/optimization-step-7.png" alt="Step 7"/></p>
-<li><p><img src="./file/model-based-methods/optimization-step-8.png" alt="Step 8"/></p>
-</li>
-
-<p class="notes">Model of EL is based on Gaussian Processes. Gaussian probability distributions at each point in the solution space (so a mean and a standard deviation). The probability distributions model the uncertainty of our model of EL. The example illustrates the concept, it is not an actual EL.</p>
-</li>
-</li>
-</li></li></li></li></li></ul></div>
-</div><div class="slide" data-transition="none"><div class="content model-based-results bullets incremental" ref="model-based-methods/04-results">
-<script type="text/javascript">
-  $('.model-based-results').bind('showoff:show', modelBasedResultsReset)
+  $('.gaussian-process-based-results').bind('showoff:show', gaussianProcessBasedResultsReset)
 </script>
 
 <h1>Convergence Behavior</h1>
 
 <ul>
-<li><p><img src="./file/model-based-methods/rego-results.png" alt="REGO Results"/></p>
+<li><p><img src="./file/gaussian-process-based-methods/rego-results.png" alt="REGO Results"/></p>
 <li><p>30 Evaluations of \(L\)</p></li>
 </li>
 
@@ -329,8 +341,8 @@ $(function() {
 <ul>
 <li><p>(Computer-Aided) Algorithm Design</p></li>
 <li><p>Conventional Methods</p></li>
-<li><p>Model Based Methods</p></li>
-<li><p>Conclusion</p></li>
+<li><p>Gaussian Process Based Methods</p></li>
+<li><p>Conclusions</p></li>
 </ul>
 
 <p class="notes">Feasibility study for applicability of CAAD to audio algorithm design</p>

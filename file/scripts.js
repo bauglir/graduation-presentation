@@ -1,5 +1,6 @@
 // Include MathJax
 (function () {
+  regoDemonstrationSetup();
   var script = document.createElement("script");
   script.type = "text/javascript";
 
@@ -56,7 +57,7 @@ function conventionalResultsReset() {
   var mask_properties = { 'width' : '50px', 'height' : '20px', 'position' : 'absolute', 'top' : '575px', 'background-color' : '#fff' };
   for(i = 0; i < 7; i++) {
     mask_properties.left = (175 + i * 115) + 'px';
-	slide.append($('<div>').addClass('mask').css(mask_properties));
+	slide.append($('<div>').css(mask_properties));
   }
 }
 
@@ -74,7 +75,7 @@ function conventionalOptimizationStrategyReset() {
     { 'width' : '260px', 'height' : '127px', 'position' : 'absolute', 'top' : '427px', 'left' : '246px', 'background-color' : '#fff' },
   ];
   for(i = 0; i < mask_properties.length; i++) {
-	slide.append($('<div>').addClass('mask').css(mask_properties[i]));
+	slide.append($('<div>').css(mask_properties[i]));
   }
 }
 
@@ -85,11 +86,11 @@ function conventionalOptimizationStrategyStep(event) {
   }
 }
 
-function modelBasedResultsReset() {
-  $('h1', '.model-based-results').css('marginTop', '-210px');
-  $('li:first-child', '.model-based-results').css('padding-bottom', '475px');
+function gaussianProcessBasedResultsReset() {
+  $('h1', '.gaussian-process-based-results').css('marginTop', '-210px');
+  $('li:first-child', '.gaussian-process-based-results').css('padding-bottom', '475px');
 
-  $('img', '.model-based-results').css({
+  $('img', '.gaussian-process-based-results').css({
     'width' : '890px',
     'position' : 'absolute',
     'top' : '110px',
@@ -113,7 +114,7 @@ function optimizationStrategyReset() {
     { 'width' : '100px', 'height' : '152px', 'position' : 'absolute', 'top' : '464px', 'left' : '271px', 'background-color' : '#fff' }
   ];
   for(i = 0; i < mask_properties.length; i++) {
-	slide.append($('<div>').addClass('mask').css(mask_properties[i]));
+	slide.append($('<div>').css(mask_properties[i]));
   }
 }
 
@@ -145,17 +146,25 @@ function overviewReset() {
   $('li', '.overview').removeClass('overview-highlighted');
 }
 
-function regoDemonstrationReset() {
+function regoDemonstrationReset(event) {
   regoDemonstrationStep = 0;
 
-  imagePositioning = { 'position' : 'absolute', 'top' : '220px', 'left': '210px' };
+  imagePositioning = { 'position' : 'absolute', 'top' : '175px', 'left': '210px' };
   $('img', '.rego-demonstration').css(imagePositioning);
-  $($('li', '.rego-demonstration')[0]).show();
+  $('li', '.rego-demonstration').slice(0, 2).show().css('padding', '25px');
+  $('div', event.target).hide();
+}
+
+function regoDemonstrationSetup() {
+  $('.rego-demonstration').append($('<div>\\(L(\\theta)\\)</div>').css({'position' : 'absolute', 'top' : '417px', 'left' : '226px', 'width' : '2em', 'padding' : '2ex 0', 'background-color' : '#fff'}));
+  $('.rego-demonstration').append($('<div>\\(\\theta\\)</div>').css({'position' : 'absolute', 'top' : '678px', 'left' : '525px', 'padding' : '0 1em', 'background-color' : '#fff'}));
+  $('div', '.rego-demonstration').hide();
 }
 
 function regoDemonstrationStep() {
-  if(regoDemonstrationStep > 0) {
-	$($('li', '.rego-demonstration')[0]).hide();
+  if(regoDemonstrationStep > 1) {
+    $('li', '.rego-demonstration').slice(0, 2).hide().css('padding', 0);
+    $('div', '.rego-demonstration').show();
   } else {
 	regoDemonstrationStep++;
   }
