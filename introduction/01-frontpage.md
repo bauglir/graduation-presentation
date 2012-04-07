@@ -3,6 +3,7 @@
 <script type="text/javascript">
 $(function() {
   $('.overview').bind('showoff:next', overviewHighlight);
+  $('.overview').bind('showoff:show', overviewReset);
 });
 </script>
 
