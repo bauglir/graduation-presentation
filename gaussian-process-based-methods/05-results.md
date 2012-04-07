@@ -1,7 +1,7 @@
-!SLIDE model-based-results bullets incremental
+!SLIDE gaussian-process-based-results bullets incremental
 
 <script type="text/javascript">
-  $('.model-based-results').bind('showoff:show', modelBasedResultsReset)
+  $('.gaussian-process-based-results').bind('showoff:show', gaussianProcessBasedResultsReset)
 </script>
 
 # Convergence Behavior

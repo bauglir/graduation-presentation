@@ -12,8 +12,8 @@
 
 * Conventional Methods
 
-* Model Based Methods
+* Gaussian Process Based Methods
 
-* Conclusion
+* Conclusions
 
 .notes Feasibility study for applicability of CAAD to audio algorithm design

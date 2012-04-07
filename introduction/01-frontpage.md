@@ -4,6 +4,7 @@
 $(function() {
   $('.overview').bind('showoff:next', overviewHighlight);
   $('.overview').bind('showoff:show', overviewReset);
+  regoDemonstrationSetup();
 });
 </script>
 

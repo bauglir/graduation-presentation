@@ -10,7 +10,7 @@
     { "section" : "overview" },
     { "section" : "conventional-methods" },
     { "section" : "overview" },
-    { "section" : "model-based-methods" },
+    { "section" : "gaussian-process-based-methods" },
     { "section" : "overview" },
     { "section" : "conclusion"}
   ]

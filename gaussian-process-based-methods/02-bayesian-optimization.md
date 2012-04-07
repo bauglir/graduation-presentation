@@ -5,9 +5,11 @@
   $('.rego-demonstration').bind('showoff:next', regoDemonstrationStep);
 </script>
 
-# Robust Efficient Global Optimization
+# Bayesian Optimization
 
-* Creates a model of \\(\text{EL}\\) based on observations of \\(L\\)
+* Quantify uncertainty using probability distributions
+
+* Optimal experimental design
 
 * ![Step 1](optimization-step-1.png)
 * ![Step 2](optimization-step-2.png)
