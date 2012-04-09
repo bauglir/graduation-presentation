@@ -37,6 +37,8 @@
   
     <link rel="stylesheet" href="./file/remove-smbullets.css" type="text/css"/>
   
+    <link rel="stylesheet" href="./file/styles.css" type="text/css"/>
+  
 
   
     <script type="text/javascript" src="./file/scripts.js"></script>
@@ -89,7 +91,9 @@
 $(function() {
   $('.overview').bind('showoff:next', overviewHighlight);
   $('.overview').bind('showoff:show', overviewReset);
+  $('.slide').bind('showoff:show', updateSectionNotifier);
   regoDemonstrationSetup();
+  sectionNotifierSetup();
 });
 </script>
 
@@ -118,10 +122,12 @@ $(function() {
 <li><p>Gaussian Process Based Methods</p></li>
 <li><p>Conclusions</p></li>
 </ul>
-
-<p class="notes">Feasibility study for applicability of CAAD to audio algorithm design</p>
 </div>
-</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="computer-aided-algorithm-design/01-design-example">
+</div><div class="slide" data-transition="none"><div class="content subsection algorithm-design bullets incremental" ref="computer-aided-algorithm-design/01-design-example">
+<script type="text/javascript">
+  $('li', '.algorithm-design').slice(1, 4).removeClass('example').addClass('example');
+</script>
+
 <h1>Algorithm Design</h1>
 
 <ul>
@@ -130,20 +136,16 @@ $(function() {
 <li><p>Removes noise power from a noisy signal</p></li>
 <li><p>Lower bound on suppression \(\left(G_\text{min}\right)\)</p></li>
 </ul>
-
-<p class="notes">Algorithm works in the frequency domain and is used for instance in Hearing Instruments</p>
 </div>
 </div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="computer-aided-algorithm-design/02-caad">
 <h1>Computer-Aided Algorithm Design</h1>
 
 <ul>
-<li><p>Problems have <em>non-analytical</em> solutions</p></li>
+<li><p>Problems to be solved using algorithms have <em>non-analytical</em> solutions</p></li>
 <li><p><em>Knowledge</em> is expressed in <em>equations</em></p></li>
 <li><p><em>Uncertainty</em> is captured in <em>parameters</em></p></li>
-<li><p>Finding optimal parameters for a given problem can be tedious work</p></li>
+<li><p>Solution for a specific problem is given by fixing parameters to specific values</p></li>
 </ul>
-
-<p class="notes">Trade-off between number of equations and degrees of freedom to search through solution space given by number of parameters. Larger parameter spaces are harder to search. But knowledge equations restrict solution space (including possibly invalid assumptions). Typically small number of parameters, since searching the parameter space can be time-consuming.</p>
 </div>
 </div><div class="slide" data-transition="none"><div class="content smbullets incremental" ref="computer-aided-algorithm-design/03-audio-algorithm-design">
 <h1>Audio Algorithm Design</h1>
@@ -151,13 +153,11 @@ $(function() {
 <ul>
 <li><em>Algorithm proposal</em></li>
 <li>\(y_{k}=H(\theta,x_{k})\) with \(\theta\in\Theta\)</li>
-<li>Model the world with relevant <em>problem instances</em></li>
+<li>Relevant <em>problem instances</em></li>
 <li>\(\mathcal{X}=\{x_{1},\ldots,x_{K}\}\) with \(p(\mathcal{X})\)</li>
 <li><em>Algorithm performance</em> function</li>
 <li>\(\text{EL}(\theta) = \sum_{k=1}^{K} p(x_k) L(y_{k},r_{k})\)</li>
 </ul>
-
-<p class="notes">H is the noise reduction algorithm. Intelligibility is related to SNR of x. Higher SNR means better intelligibility. To make speech intelligible a certain boost in SNR is required, which depends on SNR hearing loss. Loss function is log-spectral density. The optimal parameters minimize EL. We want to find optimal parameters, so can be seen as an optimization problem.</p>
 </div>
 </div><div class="slide" data-transition="none">
   <div class="content bullets incremental algorithm-performance" ref="computer-aided-algorithm-design/04-problem-statement">
@@ -165,18 +165,18 @@ $(function() {
   $('.algorithm-performance').bind('showoff:show', algorithmPerformanceSetup);
 </script>
 
-<h1>The Problem</h1>
+<h1>Optimization Problem</h1>
+
+<p>\(\text{EL}(\theta) = \sum_{k=1}^{K} p(x_k) L(y_{k},r_{k})\)</p>
 
 <ul>
 <li><p><img src="./file/computer-aided-algorithm-design/expected-loss-function-response.png" alt="Expected Loss Function Response"/></p>
 <li><p><img src="./file/computer-aided-algorithm-design/snr-probabilities.png" alt="Probability Distribution"/></p>
 <li><p><img src="./file/computer-aided-algorithm-design/loss-function-response.png" alt="Loss Function Response"/></p>
-<li><p>Evaluation of \(L\) is expensive</p></li>
-<li><p>Evaluation of \(\text{EL}\) is <em>really</em> expensive</p></li>
-<li><p><em>Find the minimum of \(\text{EL}\) in as few evaluations of \(L\) as possible</em></p></li>
+<li><p>Evaluating \(L\) is expensive</p></li>
+<li><p>Evaluating \(\text{EL}\) is \(K\) times as expensive</p></li>
+<li><p><em>Find an optimization algorithm that solves the optimization problem in as few evaluations of \(L\) as possible</em></p></li>
 </li>
-
-<p class="notes">Exhaustive calculation of surface L is not feasible. Evaluation of L is expensive, since we need the final state (S_{T}). Gaussian probability distribution fits interesting input SNRs for a given SNR loss. The minimum shown in EL plot is the one we want to find. Large number of x required to accurately model the world.</p>
 </li>
 </li>
 </ul></div>
@@ -195,20 +195,16 @@ $(function() {
 <li><p>Gaussian Process Based Methods</p></li>
 <li><p>Conclusions</p></li>
 </ul>
-
-<p class="notes">Feasibility study for applicability of CAAD to audio algorithm design</p>
 </div>
 </div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="conventional-methods/01-introduction">
 <h1>Conventional Methods</h1>
 
 <ul>
 <li><p>DIRECT [Jones <em>et al.</em>, 1993]</p></li>
-<li><p>Competitive optimization method</p></li>
-<li><p>Requires a large number of signals</p></li>
-<li><p>Takes a long time to find optimal parameters</p></li>
+<li><p><em>Competitive optimization method</em></p></li>
+<li><p>Require a large number of signals</p></li>
+<li><p>Take a long time to find optimal parameters</p></li>
 </ul>
-
-<p class="notes">Exponential growth is an issue that can be handled. Optimization is time-consuming, because evaluation of EL is time-consuming</p>
 </div>
 </div><div class="slide" data-transition="none"><div class="content conventional-optimization-strategy" ref="conventional-methods/02-optimization-strategy">
 <script type="text/javascript">
@@ -251,20 +247,20 @@ $(function() {
 <li><p>Gaussian Process Based Methods</p></li>
 <li><p>Conclusions</p></li>
 </ul>
-
-<p class="notes">Feasibility study for applicability of CAAD to audio algorithm design</p>
 </div>
-</div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="gaussian-process-based-methods/01-introduction">
+</div><div class="slide" data-transition="none"><div class="content subsection rego-introduction bullets incremental" ref="gaussian-process-based-methods/01-introduction">
+<script type="text/javascript">
+  $('li', '.rego-introduction').slice(3).css('font-style', 'italic');
+</script>
+
 <h1>Gaussian Process Based Methods</h1>
 
 <ul>
+<li><p>Robust Efficient Global Optimization [Janusevskis <em>et al.</em>, 2010]</p></li>
 <li><p>Iteratively build a model of \(\text{EL}\)</p></li>
 <li><p>Find optimal parameters using this model</p></li>
-<li><p>Robust Efficient Global Optimization [Janusevskis <em>et al.</em>, 2010]</p></li>
 <li><p>Takes 30 evaluations of \(L\) for our example</p></li>
 </ul>
-
-<p class="notes">We don't want to evaluate EL explicitly, but use a model instead</p>
 </div>
 </div><div class="slide" data-transition="none">
   <div class="content rego-demonstration bullets incremental" ref="gaussian-process-based-methods/02-bayesian-optimization">
@@ -278,6 +274,7 @@ $(function() {
 <ul>
 <li><p>Quantify uncertainty using probability distributions</p></li>
 <li><p>Optimal experimental design</p></li>
+<li><p><em>Example minimization problem</em></p></li>
 <li><p><img src="./file/gaussian-process-based-methods/optimization-step-1.png" alt="Step 1"/></p>
 <li><p><img src="./file/gaussian-process-based-methods/optimization-step-2.png" alt="Step 2"/></p>
 <li><p><img src="./file/gaussian-process-based-methods/optimization-step-3.png" alt="Step 3"/></p>
@@ -287,8 +284,6 @@ $(function() {
 <li><p><img src="./file/gaussian-process-based-methods/optimization-step-7.png" alt="Step 7"/></p>
 <li><p><img src="./file/gaussian-process-based-methods/optimization-step-8.png" alt="Step 8"/></p>
 </li>
-
-<p class="notes">Model of EL is based on Gaussian Processes. Gaussian probability distributions at each point in the solution space (so a mean and a standard deviation). The probability distributions model the uncertainty of our model of EL. The example illustrates the concept, it is not an actual EL.</p>
 </li>
 </li>
 </li></li></li></li></li></ul></div>
@@ -296,9 +291,9 @@ $(function() {
 <h1>Structure of EL</h1>
 
 <ul>
-<li><p>Use that \(\mathcal{X}\) is Gaussian distributed</p></li>
-<li><p>Explicit relation between \(L\) and \(EL\)</p></li>
-<li><p>Allows updates of the model of \(EL\) after <em>each</em> evaluation of \(L\)</p></li>
+<li><p>Assuming \(\mathcal{X}\) is Gaussian distributed</p></li>
+<li><p>Explicit relation between \(L\) and \(\text{EL}\)</p></li>
+<li><p>Knowledge about \(\text{EL}\) is updated after <em>each</em> evaluation of \(L\)</p></li>
 </ul>
 </div>
 </div><div class="slide" data-transition="none"><div class="content optimization-strategy" ref="gaussian-process-based-methods/04-optimization-strategy">
@@ -344,8 +339,6 @@ $(function() {
 <li><p>Gaussian Process Based Methods</p></li>
 <li><p>Conclusions</p></li>
 </ul>
-
-<p class="notes">Feasibility study for applicability of CAAD to audio algorithm design</p>
 </div>
 </div><div class="slide" data-transition="none"><div class="content conclusions subsection bullets incremental" ref="conclusion/01-conclusions">
 <script type="text/javascript">
@@ -355,10 +348,11 @@ $(function() {
 <h1>Conclusions</h1>
 
 <ul>
-<li><p>Significant performance gains</p></li>
+<li><p>Computer-Aided Algorithm Design is feasible</p></li>
+<li><p>For expensive loss functions significant performance gains can be achieved</p></li>
 <li><p>Not applicable out of the box</p></li>
 <li><p>Numerical issues with Gaussian Processes</p></li>
-<li><p>Investigate how well the algorithm scales</p></li>
+<li><p>Investigate how well the algorithm scales to higher dimensional problems</p></li>
 </ul>
 
 <p class="notes">Smoothness constraints have to be satisfied (i.e. it must be possible to model EL using a Gaussian Process) and input distribution of X has to be Gaussian. Numerical issues arise from the use of covariance matrices and inverting them.</p>

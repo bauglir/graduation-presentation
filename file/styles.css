@@ -1,0 +1,12 @@
+#preso, .slide {
+  background: white url('tue-logo.gif') no-repeat 815px 3px;
+}
+
+.example {
+  font-size: 1.5ex;
+  font-style: italic;
+}
+
+.subsection h1 {
+  background: #343c89;
+}

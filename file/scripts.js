@@ -17,27 +17,31 @@
 function algorithmPerformanceMoveToPosition(id) {
   var bullets = $('li', '.algorithm-performance');
   var left = [25, 350, 675];
-  imageStyling = { 'position': 'absolute', 'width': '350px', 'top': '125px' };
+  imageStyling = { 'position': 'absolute', 'width': '350px', 'top': '175px' };
   imageStyling.left = left[id] + 'px';
   $('img', bullets[id]).css(imageStyling);
 }
 
 function algorithmPerformanceSetup() {
   $('h1', '.algorithm-performance').css('marginTop', '15px');
+  $('p', '.algorithm-performance').css({ 'margin-top' : '-1.75ex'});
+
   algorithmPerformanceMoveToPosition(0);
   algorithmPerformanceMoveToPosition(1);
   algorithmPerformanceMoveToPosition(2);
 
   var bullets = $('li', '.algorithm-performance');
-  $(bullets[0]).css('padding', '125px');
+  bullets.css({ 'font-size' : '1.5ex', 'padding' : '1.5ex 0' });
+  $(bullets[0]).css('padding', '165px');
   $(bullets[1]).css('padding', 0);
   $(bullets[2]).css('padding', 0);
 }
 
 function conclusionsMarkup() {
   var items = $('li', '.conclusions');
+  items.css('font-size', '1.75ex');
   $(items[0]).css('color', 'green');
-  $(items[1]).css('color', 'orange');
+  $(items[1]).css('color', 'green');
   $(items[2]).css('color', 'orange');
 }
 
@@ -67,12 +71,12 @@ function conventionalOptimizationStrategyReset() {
   var slide = $('.conventional-optimization-strategy');
   $('div', slide).remove();
   var mask_properties = [
-    { 'width' : '214px', 'height' : '70px', 'position' : 'absolute', 'top' : '283px', 'left' : '200px', 'background-color' : '#fff' },
-    { 'width' : '235px', 'height' : '54px', 'position' : 'absolute', 'top' : '284px', 'left' : '414px', 'background-color' : '#fff' },
-    { 'width' : '175px', 'height' : '242px', 'position' : 'absolute', 'top' : '284px', 'left' : '648px', 'background-color' : '#fff' },
+    { 'width' : '216px', 'height' : '72px', 'position' : 'absolute', 'top' : '283px', 'left' : '200px', 'background-color' : '#fff' },
+    { 'width' : '235px', 'height' : '56px', 'position' : 'absolute', 'top' : '284px', 'left' : '416px', 'background-color' : '#fff' },
+    { 'width' : '175px', 'height' : '242px', 'position' : 'absolute', 'top' : '284px', 'left' : '649px', 'background-color' : '#fff' },
     { 'width' : '209px', 'height' : '114px', 'position' : 'absolute', 'top' : '434px', 'left' : '506px', 'background-color' : '#fff' },
-    { 'width' : '209px', 'height' : '97px', 'position' : 'absolute', 'top' : '337px', 'left' : '506px', 'background-color' : '#fff' },
-    { 'width' : '260px', 'height' : '127px', 'position' : 'absolute', 'top' : '427px', 'left' : '246px', 'background-color' : '#fff' },
+    { 'width' : '209px', 'height' : '97px', 'position' : 'absolute', 'top' : '339px', 'left' : '506px', 'background-color' : '#fff' },
+    { 'width' : '261px', 'height' : '127px', 'position' : 'absolute', 'top' : '427px', 'left' : '246px', 'background-color' : '#fff' },
   ];
   for(i = 0; i < mask_properties.length; i++) {
 	slide.append($('<div>').css(mask_properties[i]));
@@ -109,7 +113,7 @@ function optimizationStrategyReset() {
     { 'width' : '182px', 'height' : '299px', 'position' : 'absolute', 'top' : '163px', 'left' : '624px', 'background-color' : '#fff' },
     { 'width' : '355px', 'height' : '190px', 'position' : 'absolute', 'top' : '461px', 'left' : '451px', 'background-color' : '#fff' },
     { 'width' : '165px', 'height' : '184px', 'position' : 'absolute', 'top' : '362px', 'left' : '451px', 'background-color' : '#fff' },
-    { 'width' : '205px', 'height' : '111px', 'position' : 'absolute', 'top' : '251px', 'left' : '477px', 'background-color' : '#fff' },
+    { 'width' : '205px', 'height' : '110px', 'position' : 'absolute', 'top' : '252px', 'left' : '477px', 'background-color' : '#fff' },
     { 'width' : '256px', 'height' : '93px', 'position' : 'absolute', 'top' : '372px', 'left' : '221px', 'background-color' : '#fff' },
     { 'width' : '100px', 'height' : '152px', 'position' : 'absolute', 'top' : '464px', 'left' : '271px', 'background-color' : '#fff' }
   ];
@@ -151,7 +155,7 @@ function regoDemonstrationReset(event) {
 
   imagePositioning = { 'position' : 'absolute', 'top' : '175px', 'left': '210px' };
   $('img', '.rego-demonstration').css(imagePositioning);
-  $('li', '.rego-demonstration').slice(0, 2).show().css('padding', '25px');
+  $('li', '.rego-demonstration').slice(0, 3).show().css('padding', '25px');
   $('div', event.target).hide();
 }
 
@@ -162,10 +166,33 @@ function regoDemonstrationSetup() {
 }
 
 function regoDemonstrationStep() {
-  if(regoDemonstrationStep > 1) {
-    $('li', '.rego-demonstration').slice(0, 2).hide().css('padding', 0);
+  if(regoDemonstrationStep > 2) {
+    $('li', '.rego-demonstration').slice(0, 3).hide().css('padding', 0);
     $('div', '.rego-demonstration').show();
   } else {
 	regoDemonstrationStep++;
   }
+}
+
+function sectionNotifierSetup() {
+  $('div#footer').append('<div id="section-notifier"></div>');
+  $('#section-notifier').css({ 'float' : 'right' })
+}
+
+function updateSectionNotifier(event) {
+  var sections = ['Introduction', 'Overview', '(Computer-Aided) Algorithm Design', 
+                  '(Computer-Aided) Algorithm Design', '(Computer-Aided) Algorithm Design', 
+                  '(Computer-Aided) Algorithm Design', 'Overview', 'Conventional Methods',
+                  'Conventional Methods', 'Conventional Methods', 'Overview', 'Gaussian Process Based Methods',
+                  'Gaussian Process Based Methods', 'Gaussian Process Based Methods', 'Gaussian Process Based Methods', 
+                  'Gaussian Process Based Methods', 'Overview', 'Conclusions', ''];
+  var active_slide_idx = 0;
+
+  $('.content').each(function(idx, slide) {
+	if(slide == event.target) {
+      active_slide_idx = idx;
+	}
+  });
+
+  $('#section-notifier').text(sections[active_slide_idx]);
 }
