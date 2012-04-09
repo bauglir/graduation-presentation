@@ -15,5 +15,3 @@
 * Gaussian Process Based Methods
 
 * Conclusions
-
-.notes Feasibility study for applicability of CAAD to audio algorithm design
