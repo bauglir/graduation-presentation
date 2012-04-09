@@ -173,3 +173,26 @@ function regoDemonstrationStep() {
 	regoDemonstrationStep++;
   }
 }
+
+function sectionNotifierSetup() {
+  $('div#footer').append('<div id="section-notifier"></div>');
+  $('#section-notifier').css({ 'float' : 'right' })
+}
+
+function updateSectionNotifier(event) {
+  var sections = ['Introduction', 'Overview', '(Computer-Aided) Algorithm Design', 
+                  '(Computer-Aided) Algorithm Design', '(Computer-Aided) Algorithm Design', 
+                  '(Computer-Aided) Algorithm Design', 'Overview', 'Conventional Methods',
+                  'Conventional Methods', 'Conventional Methods', 'Overview', 'Gaussian Process Based Methods',
+                  'Gaussian Process Based Methods', 'Gaussian Process Based Methods', 'Gaussian Process Based Methods', 
+                  'Gaussian Process Based Methods', 'Overview', 'Conclusions', ''];
+  var active_slide_idx = 0;
+
+  $('.content').each(function(idx, slide) {
+	if(slide == event.target) {
+      active_slide_idx = idx;
+	}
+  });
+
+  $('#section-notifier').text(sections[active_slide_idx]);
+}
