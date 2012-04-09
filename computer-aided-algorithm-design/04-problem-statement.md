@@ -4,17 +4,18 @@
   $('.algorithm-performance').bind('showoff:show', algorithmPerformanceSetup);
 </script>
 
-# The Problem
+# Optimization Problem
+
+\\(\text{EL}(\theta) = \sum\_{k=1}^{K} p(x\_k) L(y\_{k},r\_{k})\\)
+
 * ![Expected Loss Function Response](expected-loss-function-response.png)
 
 * ![Probability Distribution](snr-probabilities.png)
 
 * ![Loss Function Response](loss-function-response.png)
 
-* Evaluation of \\(L\\) is expensive
+* Evaluating \\(L\\) is expensive
 
-* Evaluation of \\(\text{EL}\\) is _really_ expensive
+* Evaluating \\(\text{EL}\\) is \\(K\\) times as expensive
 
-* _Find the minimum of \\(\text{EL}\\) in as few evaluations of \\(L\\) as possible_
-
-.notes Exhaustive calculation of surface L is not feasible. Evaluation of L is expensive, since we need the final state \(S_{T}\). Gaussian probability distribution fits interesting input SNRs for a given SNR loss. The minimum shown in EL plot is the one we want to find. Large number of x required to accurately model the world.
+* _Find an optimization algorithm that solves the optimization problem in as few evaluations of \\(L\\) as possible_

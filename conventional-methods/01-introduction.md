@@ -4,10 +4,8 @@
 
 * DIRECT [Jones _et al._, 1993]
 
-* Competitive optimization method
+* _Competitive optimization method_
 
-* Requires a large number of signals
+* Require a large number of signals
 
-* Takes a long time to find optimal parameters
-
-.notes Exponential growth is an issue that can be handled. Optimization is time-consuming, because evaluation of EL is time-consuming
+* Take a long time to find optimal parameters

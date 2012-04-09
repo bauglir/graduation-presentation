@@ -2,8 +2,8 @@
 
 # Structure of EL
 
-* Use that \\(\mathcal{X}\\) is Gaussian distributed
+* Assuming \\(\mathcal{X}\\) is Gaussian distributed
 
-* Explicit relation between \\(L\\) and \\(EL\\)
+* Explicit relation between \\(L\\) and \\(\text{EL}\\)
 
-* Allows updates of the model of \\(EL\\) after _each_ evaluation of \\(L\\)
+* Knowledge about \\(\text{EL}\\) is updated after _each_ evaluation of \\(L\\)

@@ -18,16 +18,16 @@
   align=center]
 
   \node[question] (stop) {Stop?};
-  \node[action] (ask) [above=of stop, yshift=3.5ex] {Choose $\vecttheta_{k}\in\Theta$};
-  \node[action] (evaluate loss function) [right=of stop, xshift=1.5em] {Evaluate\\$\text{EL}(\vecttheta_{k})$};
+  \node[action] (ask) [above=of stop, yshift=3.5ex] {Choose $\vecttheta_{n}\in\Theta$};
+  \node[action] (evaluate loss function) [right=of stop, xshift=1.5em] {Evaluate\\$\text{EL}(\vecttheta_{n})$};
 
   \node[endpoint] (best) [left=of stop, xshift=-3em] {Return $\thetaOpt$};
   \node[action] (start) [above=of best, left=of ask] {Initialize optimizer\\using $\Theta$};
 
   \draw[->,thick] (start) -- (ask);
-  \draw[->,thick] (ask) -| node[above, midway] {$\vecttheta_{k}$} (evaluate loss function);
-  \draw[->,thick] (evaluate loss function) -- node[below, midway] {$\text{EL}(\vecttheta_{k})$} (stop);
-  \draw[->,thick] (stop) -- node[xshift=2.4em, fill=white] {No, $k = k+1$\\(Initialize $k=0$)} (ask);
+  \draw[->,thick] (ask) -| node[above, midway] {$\vecttheta_{n}$} (evaluate loss function);
+  \draw[->,thick] (evaluate loss function) -- node[below, midway] {$\text{EL}(\vecttheta_{n})$} (stop);
+  \draw[->,thick] (stop) -- node[xshift=2.4em, fill=white] {No, $n = n+1$\\(Initialize $n=0$)} (ask);
   \draw[->,thick] (stop) -- node[midway, fill=white] {Yes} (best);
 \end{tikzpicture}
 \end{document}

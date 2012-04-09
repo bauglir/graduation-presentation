@@ -1,4 +1,8 @@
-!SLIDE subsection bullets incremental
+!SLIDE subsection algorithm-design bullets incremental
+
+<script type="text/javascript">
+  $('li', '.algorithm-design').slice(1, 4).removeClass('example').addClass('example');
+</script>
 
 # Algorithm Design
 
@@ -9,5 +13,3 @@
 * Removes noise power from a noisy signal
 
 * Lower bound on suppression \\(\left(G_\text{min}\right)\\)
-
-.notes Algorithm works in the frequency domain and is used for instance in Hearing Instruments
