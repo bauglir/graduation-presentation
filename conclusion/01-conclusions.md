@@ -16,4 +16,3 @@
 
 * Investigate how well the algorithm scales to higher dimensional problems
 
-.notes Smoothness constraints have to be satisfied (i.e. it must be possible to model EL using a Gaussian Process) and input distribution of X has to be Gaussian. Numerical issues arise from the use of covariance matrices and inverting them.
