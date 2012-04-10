@@ -7,6 +7,20 @@
   font-style: italic;
 }
 
+.improving-intelligibility h1 {
+  margin-top: -4.25ex;
+}
+
+.improving-intelligibility img {
+  position: absolute;
+  top: 185px;
+  left: 50px;
+}
+
+.improving-intelligibility li {
+  padding: 0;
+}
+
 .subsection h1 {
   background: #343c89;
 }
