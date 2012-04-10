@@ -239,8 +239,6 @@ $(function() {
 <li><p><img src="./file/conventional-methods/direct-results.png" alt="DIRECT Results"/></p>
 <li><p>350 Evaluations of \(L\)</p></li>
 </li>
-
-<p class="notes">3 experiments for different target SNR losses</p>
 </ul>
 </div>
 </div><div class="slide" data-transition="none"><div class="content overview" ref="overview/01-overview">
@@ -316,8 +314,6 @@ $(function() {
 <h1>Optimization Strategy</h1>
 
 <p><img src="./file/gaussian-process-based-methods/optimization-strategy.png" alt="Optimization Strategy"/>
-
-<p class="notes">Conceptual strategy, how these steps are implemented follows. Stop if we think our model is accurate enough.</p>
 </p>
 </div>
 </div><div class="slide" data-transition="none"><div class="content gaussian-process-based-results bullets incremental" ref="gaussian-process-based-methods/05-results">
@@ -331,8 +327,6 @@ $(function() {
 <li><p><img src="./file/gaussian-process-based-methods/rego-results.png" alt="REGO Results"/></p>
 <li><p>30 Evaluations of \(L\)</p></li>
 </li>
-
-<p class="notes">Same experiment as before, but repeated 10 times for each experiment. Uses 10 evaluations of L to create initial model. Non-monotonicity is caused by adjusting the model to the observations (temporary overfit).</p>
 </ul>
 </div>
 </div><div class="slide" data-transition="none"><div class="content overview" ref="overview/01-overview">
@@ -365,8 +359,6 @@ $(function() {
 <li><p>Numerical issues with Gaussian Processes</p></li>
 <li><p>Investigate how well the algorithm scales to higher dimensional problems</p></li>
 </ul>
-
-<p class="notes">Smoothness constraints have to be satisfied (i.e. it must be possible to model EL using a Gaussian Process) and input distribution of X has to be Gaussian. Numerical issues arise from the use of covariance matrices and inverting them.</p>
 </div>
 </div><div class="slide" data-transition="none"><div class="content subsection bullets incremental" ref="conclusion/02-thanks">
 <h1>Thank You For Listening!</h1>
