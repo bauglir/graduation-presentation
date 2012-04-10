@@ -1,4 +1,4 @@
-!SLIDE conventional-optimization-strategy
+!SLIDE conventional-optimization-strategy bullets
 
 <script type="text/javascript">
   $('.conventional-optimization-strategy').bind('showoff:show', conventionalOptimizationStrategyReset);

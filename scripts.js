@@ -66,10 +66,11 @@ function conventionalResultsReset() {
 }
 
 function conventionalOptimizationStrategyReset() {
-  conventionalOptimizationStrategyStep = 0;
+  conventionalOptimizationStrategyStepIdx = 0;
   $('h1', '.conventional-optimization-strategy').css('marginTop', '-160px');
   var slide = $('.conventional-optimization-strategy');
   $('div', slide).remove();
+  $('ul', slide).remove();
   var mask_properties = [
     { 'width' : '216px', 'height' : '72px', 'position' : 'absolute', 'top' : '283px', 'left' : '200px', 'background-color' : '#fff' },
     { 'width' : '235px', 'height' : '56px', 'position' : 'absolute', 'top' : '284px', 'left' : '416px', 'background-color' : '#fff' },
@@ -84,8 +85,13 @@ function conventionalOptimizationStrategyReset() {
 }
 
 function conventionalOptimizationStrategyStep(event) {
-  $($('div', '.conventional-optimization-strategy')[conventionalOptimizationStrategyStep++]).hide();
-  if(conventionalOptimizationStrategyStep < 7) {
+  if(conventionalOptimizationStrategyStepIdx < 6) {
+	$($('div', '.conventional-optimization-strategy')[conventionalOptimizationStrategyStepIdx++]).hide();
+    event.preventDefault();
+  } else if(conventionalOptimizationStrategyStepIdx < 7) {
+	conventionalOptimizationStrategyStepIdx++;
+    $('.conventional-optimization-strategy').append('<ul><li><p>Each iteration through the loop requires K evaluations of L</p></li></ul>');
+    $('ul', '.conventional-optimization-strategy').css('margin-top', '-1.5ex');
     event.preventDefault();
   }
 }
